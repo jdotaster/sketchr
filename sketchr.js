@@ -1,8 +1,9 @@
 let canvasSize = "16"; // canvas size defaults to 16x16
 let penColor = "#000000"; // pen defaults to black
+let randomColors = false; // color randomizer turned off by default
 let canvasColor = "#ffffff" // canvas defaults to white
 let displayGrid = false; // by default, do not display grid lines on canvas
-let isDrawing = false;
+let isDrawing = false; // drawing only happens when mouse is being held down
 
 
 const setCanvas = (size) => {
@@ -38,7 +39,7 @@ const setPenColor = (color) => {
 
     for (let i = 0; i < canvasSpaces.length; i++) {
         canvasSpaces[i].addEventListener("mousedown", () => {
-            canvasSpaces[i].style.backgroundColor = penColor;
+            canvasSpaces[i].style.backgroundColor = randomColors ? getRandomColor() : penColor;
             isDrawing = true;
         })
         canvasSpaces[i].addEventListener("mouseup", () => {
@@ -46,7 +47,7 @@ const setPenColor = (color) => {
         })
         canvasSpaces[i].addEventListener("mouseover", () => {
             if (isDrawing) {
-                canvasSpaces[i].style.backgroundColor = penColor;
+                canvasSpaces[i].style.backgroundColor = randomColors ? getRandomColor() : penColor
             }
         });
     };
@@ -81,6 +82,12 @@ const setGridDisplay = (value) => {
 };
 
 
+const setRandomColors = (value) => {
+    randomColors = value;
+    setPenColor(getRandomColor());
+}
+
+
 const getRandomColor = () => {
     return `#${Math.floor(Math.random()*16777215).toString(16)}`;
 };
@@ -107,7 +114,11 @@ const registerPenColorEvents = () => {
     document.getElementById("penColorPicker").addEventListener("change", (event) => {
         setPenColor(event.target.value);
     })
+    document.getElementById("randomColorsCheckBox").addEventListener("change", (event) => {
+        setRandomColors(event.target.checked);
+    })
 };
+
 
 const registerGridDisplayEvents = () => {
     document.getElementById("gridCheckBox").addEventListener("change", (event) => {
