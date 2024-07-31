@@ -1,6 +1,7 @@
 let canvasSize = "16"; // canvas size defaults to 16x16
 let penColor = "#000000"; // pen defaults to black
 let canvasColor = "#ffffff" // canvas defaults to white
+let displayGrid = false; // by default, do not display grid lines on canvas
 
 
 const setCanvas = (size) => {
@@ -28,6 +29,7 @@ const setCanvas = (size) => {
 
     setPenColor(penColor);
     setCanvasColor(canvasColor);
+    setGridDisplay(displayGrid);
 };
 
 
@@ -46,7 +48,7 @@ const setPenColor = (color) => {
 const setCanvasColor = (color) => {
     canvasColor = color;
     document.getElementById("canvas").style.backgroundColor = color;
-}
+};
 
 
 const setCanvasSize = (size) => {
@@ -54,6 +56,20 @@ const setCanvasSize = (size) => {
     document.getElementById("sliderValue").innerHTML = `${canvasSize} x ${canvasSize}`;
     document.getElementById("canvasSlider").setAttribute("value", canvasSize);
 };
+
+const setGridDisplay = (value) => {
+    displayGrid = value;
+
+    const canvasSpaces = document.getElementsByClassName("canvasSpace");
+
+    for (let i = 0; i < canvasSpaces.length; i++) {
+        if (displayGrid === false) {
+            canvasSpaces[i].style.border = "none";
+        } else {
+            canvasSpaces[i].style.border = ".5px solid black";
+        }
+    };
+}
 
 
 const registerSliderEvents = () => {
@@ -77,6 +93,12 @@ const registerPenColorEvents = () => {
     document.getElementById("penColorPicker").addEventListener("change", (event) => {
         setPenColor(event.target.value);
     })
+};
+
+const registerGridDisplayEvents = () => {
+    document.getElementById("gridCheckBox").addEventListener("change", (event) => {
+        setGridDisplay(event.target.checked);
+    })
 }
 
 
@@ -86,4 +108,5 @@ document.addEventListener("DOMContentLoaded", () => {
     registerSliderEvents();
     registerCanvasColorEvents();
     registerPenColorEvents();
+    registerGridDisplayEvents();
 })
