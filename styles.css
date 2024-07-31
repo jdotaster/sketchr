@@ -1,3 +1,30 @@
+.titleContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.titleElement {
+    text-align: center;
+}
+
+#contentContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#controllerContainer {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+}
+
+#canvasContainer {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+}
+
 #canvas {
     display: flex;
     border: solid black 5px;
