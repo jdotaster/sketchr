@@ -1,0 +1,16 @@
+#canvas {
+    display: flex;
+    border: solid black 5px;
+    width: 30vw;
+    flex-direction: column;
+}
+
+.canvasRow {
+    display: flex;
+}
+
+.canvasSpace {
+    border: solid black 1px;
+    aspect-ratio: 1;
+    flex: 1;
+}
