@@ -32,19 +32,20 @@ const setCanvas = (size) => {
 
 
 const setPenColor = (color) => {
+    penColor = color;
     const canvasSpaces = document.getElementsByClassName("canvasSpace");
 
     for (let i = 0; i < canvasSpaces.length; i++) {
         canvasSpaces[i].addEventListener("mouseover", () => {
-            canvasSpaces[i].style.backgroundColor = color;
+            canvasSpaces[i].style.backgroundColor = penColor;
         });
     };
 };
 
 
 const setCanvasColor = (color) => {
-    canvasColor = document.getElementById("canvasColorPicker").value;
-    document.getElementById("canvas").style.backgroundColor = canvasColor;
+    canvasColor = color;
+    document.getElementById("canvas").style.backgroundColor = color;
 }
 
 
@@ -67,16 +68,22 @@ const registerSliderEvents = () => {
 
 const registerCanvasColorEvents = () => {
     document.getElementById("canvasColorPicker").addEventListener("change", (event) => {
-        setCanvasColor();
+        setCanvasColor(event.target.value);
     })
 };
+
+
+const registerPenColorEvents = () => {
+    document.getElementById("penColorPicker").addEventListener("change", (event) => {
+        setPenColor(event.target.value);
+    })
+}
 
 
 document.addEventListener("DOMContentLoaded", () => {
     setCanvasSize(canvasSize);
     setCanvas(canvasSize);
-    setCanvasColor(canvasColor);
-    setPenColor(penColor);
     registerSliderEvents();
     registerCanvasColorEvents();
+    registerPenColorEvents();
 })
