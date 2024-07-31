@@ -2,18 +2,16 @@ let canvasSize = "16"; // canvas size defaults to 16x16
 let penColor = "#000000"; // pen defaults to black
 let canvasColor = "#ffffff" // canvas defaults to white
 let displayGrid = false; // by default, do not display grid lines on canvas
-
+let isDrawing = false;
 
 const setCanvas = (size) => {
+    setCanvasSize(size);
+
     let canvas = document.getElementById("canvas");
 
-    if (canvas !== null) {
-        let canvasContainer = document.getElementById("canvasContainer").removeChild(canvas);
+    while (canvas.lastChild) {
+        canvas.removeChild(canvas.lastChild);
     }
-
-    canvas = document.createElement("div");
-    canvas.id = "canvas";
-    canvasContainer.appendChild(canvas);
 
     for (let i = 0; i < size; i++) {
         let canvasRow = document.createElement("div");
@@ -38,8 +36,17 @@ const setPenColor = (color) => {
     const canvasSpaces = document.getElementsByClassName("canvasSpace");
 
     for (let i = 0; i < canvasSpaces.length; i++) {
-        canvasSpaces[i].addEventListener("mouseover", () => {
+        canvasSpaces[i].addEventListener("mousedown", () => {
             canvasSpaces[i].style.backgroundColor = penColor;
+            isDrawing = true;
+        })
+        canvasSpaces[i].addEventListener("mouseup", () => {
+            isDrawing = false;
+        })
+        canvasSpaces[i].addEventListener("mouseover", () => {
+            if (isDrawing) {
+                canvasSpaces[i].style.backgroundColor = penColor;
+            }
         });
     };
 };
@@ -57,6 +64,7 @@ const setCanvasSize = (size) => {
     document.getElementById("canvasSlider").setAttribute("value", canvasSize);
 };
 
+
 const setGridDisplay = (value) => {
     displayGrid = value;
 
@@ -69,7 +77,12 @@ const setGridDisplay = (value) => {
             canvasSpaces[i].style.border = ".5px solid black";
         }
     };
-}
+};
+
+
+const getRandomColor = () => {
+    return `#${Math.floor(Math.random()*16777215).toString(16)}`;
+};
 
 
 const registerSliderEvents = () => {
@@ -102,11 +115,22 @@ const registerGridDisplayEvents = () => {
 }
 
 
+const registerCanvasEvents = () => {
+    document.getElementById("canvas").addEventListener("mousedown", () => {
+        console.log("started drawing");
+    })
+}
+
+
 document.addEventListener("DOMContentLoaded", () => {
-    setCanvasSize(canvasSize);
     setCanvas(canvasSize);
+    setPenColor(penColor);
+    setCanvasColor(canvasColor);
+    setGridDisplay(displayGrid);
+
     registerSliderEvents();
     registerCanvasColorEvents();
     registerPenColorEvents();
     registerGridDisplayEvents();
-})
+    registerCanvasEvents();
+});
