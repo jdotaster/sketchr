@@ -4,6 +4,7 @@ let canvasColor = "#ffffff" // canvas defaults to white
 let displayGrid = false; // by default, do not display grid lines on canvas
 let isDrawing = false;
 
+
 const setCanvas = (size) => {
     setCanvasSize(size);
 
@@ -112,14 +113,7 @@ const registerGridDisplayEvents = () => {
     document.getElementById("gridCheckBox").addEventListener("change", (event) => {
         setGridDisplay(event.target.checked);
     })
-}
-
-
-const registerCanvasEvents = () => {
-    document.getElementById("canvas").addEventListener("mousedown", () => {
-        console.log("started drawing");
-    })
-}
+};
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -132,5 +126,4 @@ document.addEventListener("DOMContentLoaded", () => {
     registerCanvasColorEvents();
     registerPenColorEvents();
     registerGridDisplayEvents();
-    registerCanvasEvents();
 });

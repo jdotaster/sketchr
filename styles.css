@@ -3,6 +3,7 @@
     border: solid black 5px;
     width: 40vw;
     flex-direction: column;
+    cursor: crosshair;
 }
 
 .canvasRow {
