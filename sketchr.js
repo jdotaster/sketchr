@@ -1,6 +1,6 @@
 let canvasSize = "16"; // canvas size defaults to 16x16
 let penColor = "#000000"; // pen defaults to black
-let canvasColor = "#FFFFFF" // canvas defaults to white
+let canvasColor = "#ffffff" // canvas defaults to white
 
 
 const setCanvas = (size) => {
@@ -25,6 +25,9 @@ const setCanvas = (size) => {
             canvasRow.appendChild(canvasSpace);
         }
     }
+
+    setPenColor(penColor);
+    setCanvasColor(canvasColor);
 };
 
 
@@ -39,8 +42,9 @@ const setPenColor = (color) => {
 };
 
 
-const setCanvasBgColor = (color) => {
-    document.getElementById("canvas").style.backgroundColor = color;
+const setCanvasColor = (color) => {
+    canvasColor = document.getElementById("canvasColorPicker").value;
+    document.getElementById("canvas").style.backgroundColor = canvasColor;
 }
 
 
@@ -57,15 +61,22 @@ const registerSliderEvents = () => {
     });
     document.getElementById("canvasSlider").addEventListener("change", () => {
         setCanvas(canvasSize);
-        setPenColor(penColor);
     });
+};
+
+
+const registerCanvasColorEvents = () => {
+    document.getElementById("canvasColorPicker").addEventListener("change", (event) => {
+        setCanvasColor();
+    })
 };
 
 
 document.addEventListener("DOMContentLoaded", () => {
     setCanvasSize(canvasSize);
     setCanvas(canvasSize);
-    setCanvasBgColor(canvasColor);
+    setCanvasColor(canvasColor);
     setPenColor(penColor);
     registerSliderEvents();
+    registerCanvasColorEvents();
 })
