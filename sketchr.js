@@ -30,13 +30,17 @@ const setPenColor = (color) => {
     }
 };
 
+const registerSlider = () => {
+    document.getElementById("sliderValue").innerHTML = canvasSize;
+    document.getElementById("canvasSlider").setAttribute("value", canvasSize.toString());
+    document.getElementById("canvasSlider").addEventListener("input", (event) => {
+        document.getElementById("sliderValue").innerHTML = event.target.value;
+    });
+}
+
 
 document.addEventListener("DOMContentLoaded", () => {
     loadCanvas(canvasSize);
     setPenColor(penColor);
-    let slider = document.getElementById("canvasSlider");
-    slider?.addEventListener("input", (event) => {
-        console.log(`${slider.value}`);
-    });
-
+    registerSlider();
 })
