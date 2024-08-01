@@ -18,47 +18,58 @@
     
         <div id="contentContainer">
             <div id="controllerContainer">
-                <div id="sliderContainer">
-                    <div>
-                        <label for="canvasSlider">Canvas size</label>    
+                <div class="controllerSpacer"></div>
+                <div class="controlPanelContainer">
+                    <div class="controlPanelSpacer"></div>
+                    <div id="controlPanel">
+                        <div>
+                            <h4>Controls</h4>
+                        </div>
+                        <div id="sliderContainer">
+                            <div>
+                                <label for="canvasSlider">Canvas size</label>    
+                            </div>
+                            <div>
+                                <input type="range" id="canvasSlider" name="canvasSlider" min="1" max="100">
+                            </div>
+                            <div id="sliderValue"></div>
+                        </div>
+                        <div id="canvasColorPickerContainer">
+                            <div>
+                                <label for="canvasColorPicker">Canvas color</label>
+                            </div>
+                            <div>
+                                <input type="color" id="canvasColorPicker" name="canvasColorPicker" value="#ffffff">
+                            </div>
+                        </div>
+                        <div id="penColorPickerContainer">
+                            <div>
+                                <label for="penColorPicker">Pen color</label>    
+                            </div>
+                            <div>
+                                <input type="color" id="penColorPicker" name="penColorPicker" value="#000000">
+                            </div>
+                        </div>
+                        <div id="gridCheckBoxContainer">
+                            <div>
+                                <label for="gridCheckBox">Display grid lines?</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="gridCheckBox" name="gridCheckBox">
+                            </div>
+                        </div>
+                        <div id="randomColorsCheckBoxContainer">
+                            <div>
+                                <label for="randomColorsCheckBox">Disco mode</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="randomColorsCheckBox" name="RandomColorsCheckBox">
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <input type="range" id="canvasSlider" name="canvasSlider" min="1" max="100">
-                    </div>
-                    <div id="sliderValue"></div>
+                    <div class="controlPanelSpacer"></div>
                 </div>
-                <div id="canvasColorPickerContainer">
-                    <div>
-                        <label for="canvasColorPicker">Canvas color</label>
-                    </div>
-                    <div>
-                        <input type="color" id="canvasColorPicker" name="canvasColorPicker" value="#ffffff">
-                    </div>
-                </div>
-                <div id="penColorPickerContainer">
-                    <div>
-                        <label for="penColorPicker">Pen color</label>    
-                    </div>
-                    <div>
-                        <input type="color" id="penColorPicker" name="penColorPicker" value="#000000">
-                    </div>
-                </div>
-                <div id="gridCheckBoxContainer">
-                    <div>
-                        <label for="gridCheckBox">Display grid lines?</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="gridCheckBox" name="gridCheckBox">
-                    </div>
-                </div>
-                <div id="randomColorsCheckBoxContainer">
-                    <div>
-                        <label for="randomColorsCheckBox">Disco mode</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="randomColorsCheckBox" name="RandomColorsCheckBox">
-                    </div>
-                </div>
+                <div class="controllerSpacer"></div>
             </div>
     
             <div id="canvasContainer">
@@ -70,7 +81,6 @@
         </div>
     
         <div id="footerContainer">
-            <div></div>
             <div>Designed and developed by <a href="https://github.com/jdotaster">Joshua Sienkiewicz</a>.</div>
         </div>
     </div>
