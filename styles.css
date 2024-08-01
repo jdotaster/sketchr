@@ -36,7 +36,15 @@
     flex: 3;
     box-shadow: 0px 0px 16px black;
     text-align: center;
+    border-radius: 8px;
+}
 
+.controlPanelHeader {
+    border-bottom: 1px solid black;
+}
+
+.controlPanelHeader h4 {
+    margin: 0;
 }
 
 .controllerSpacer {
@@ -98,6 +106,7 @@
     justify-content: center;
     flex: 1;
     box-shadow: 0px 0px 16px black;
+    border-radius: 8px;
 }
 
 #spacerContainer {
@@ -111,6 +120,7 @@
     width: 40vw;
     flex-direction: column;
     cursor: crosshair;
+    border-radius: 8px;
 }
 
 .canvasRow {
