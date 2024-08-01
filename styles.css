@@ -1,3 +1,10 @@
+#pageContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100vh;
+}
+
 .titleContainer {
     display: flex;
     flex-direction: column;
@@ -9,19 +16,65 @@
 
 #contentContainer {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
 }
 
 #controllerContainer {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
     flex: 1;
+}
+
+#sliderContainer {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#sliderContainer input {
+    width: 50%;
+}
+
+#canvasColorPickerContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+#penColorPickerContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+#gridCheckBoxContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+#randomColorsCheckBoxContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
 }
 
 #canvasContainer {
     display: flex;
     justify-content: center;
+    flex: 1;
+    box-shadow: 0px 0px 16px black;
+}
+
+#spacerContainer {
+    display: flex;
     flex: 1;
 }
 
@@ -43,3 +96,12 @@
     aspect-ratio: 1;
     flex: 1;
 }
+
+#footerContainer {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    flex: 1;
+    justify-content: flex-end;
+}
+

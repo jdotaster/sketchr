@@ -10,42 +10,71 @@
 </head>
 <body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
-    <div class="titleContainer">
-        <h1 class="titleElement">Sketchr</h1>
-        <h2 class="titleElement">A web-based drawing tool</h2>
-    </div>
-
-    <div id="contentContainer">
-        
-        <div id="canvasContainer">
-            <div id="canvas"></div>
+    <div id="pageContainer">
+        <div class="titleContainer">
+            <h2 class="titleElement">Sketchr</h1>
+            <h4 class="titleElement">A web-based drawing tool</h2>
         </div>
-
-        <div id="controllerContainer">
-            <div id="sliderContainer">
-                <label for="canvasSlider">Canvas size</label>
-                <input type="range" id="canvasSlider" name="canvasSlider" min="1" max="100">
-                <div id="sliderValue"></div>
+    
+        <div id="contentContainer">
+            <div id="controllerContainer">
+                <div id="sliderContainer">
+                    <div>
+                        <label for="canvasSlider">Canvas size</label>    
+                    </div>
+                    <div>
+                        <input type="range" id="canvasSlider" name="canvasSlider" min="1" max="100">
+                    </div>
+                    <div id="sliderValue"></div>
+                </div>
+                <div id="canvasColorPickerContainer">
+                    <div>
+                        <label for="canvasColorPicker">Canvas color</label>
+                    </div>
+                    <div>
+                        <input type="color" id="canvasColorPicker" name="canvasColorPicker" value="#ffffff">
+                    </div>
+                </div>
+                <div id="penColorPickerContainer">
+                    <div>
+                        <label for="penColorPicker">Pen color</label>    
+                    </div>
+                    <div>
+                        <input type="color" id="penColorPicker" name="penColorPicker" value="#000000">
+                    </div>
+                </div>
+                <div id="gridCheckBoxContainer">
+                    <div>
+                        <label for="gridCheckBox">Display grid lines?</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="gridCheckBox" name="gridCheckBox">
+                    </div>
+                </div>
+                <div id="randomColorsCheckBoxContainer">
+                    <div>
+                        <label for="randomColorsCheckBox">Disco mode</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="randomColorsCheckBox" name="RandomColorsCheckBox">
+                    </div>
+                </div>
             </div>
-            <div id="canvasColorPickerContainer">
-                <label for="canvasColorPicker">Canvas color</label>
-                <input type="color" id="canvasColorPicker" name="canvasColorPicker" value="#ffffff">
+    
+            <div id="canvasContainer">
+                <div id="canvas"></div>
             </div>
-            <div id="penColorPickerContainer">
-                <label for="penColorPicker">Pen color</label>
-                <input type="color" id="penColorPicker" name="penColorPicker" value="#000000">
-            </div>
-            <div id="gridCheckBoxContainer">
-                <label for="gridCheckBox">Display grid lines?</label>
-                <input type="checkbox" id="gridCheckBox" name="gridCheckBox">
-            </div>
-            <div id="randomColorsCheckBoxContainer">
-                <label for="randomColorsCheckBox">Disco mode</label>
-                <input type="checkbox" id="randomColorsCheckBox" name="RandomColorsCheckBox">
+    
+            <div id="spacerContainer">
             </div>
         </div>
+    
+        <div id="footerContainer">
+            <div></div>
+            <div>Designed and developed by <a href="https://github.com/jdotaster">Joshua Sienkiewicz</a>.</div>
+        </div>
     </div>
+    
     
 </body>
 </html>
