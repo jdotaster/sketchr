@@ -8,6 +8,7 @@
 .titleContainer {
     display: flex;
     flex-direction: column;
+    margin: 2vh;
 }
 
 .titleElement {
